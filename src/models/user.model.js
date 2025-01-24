@@ -34,7 +34,7 @@ const userSchema = new Schema({
         default: "/images/default-cover.png",
     },
     watchHistory:{
-        typee: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Video"
     },
     password:{
