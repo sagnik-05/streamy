@@ -13,7 +13,8 @@ const registerUser = asyncHandler( async (req, res) =>{
     // create user and save user to database
     // return response to frontend
     const {username, email, password, fullName} = req.body;
-    console.log("email: ", email);
+    console.log(req.body);
+    console.log(req.files);
     if(
         [fullName, username, email, password].some((field) => // check if any field is empty after trimming
         field?.trim() === "")
@@ -21,7 +22,7 @@ const registerUser = asyncHandler( async (req, res) =>{
     {
         throw new ApiError(400, "All fields are required");
     }
-    const existedUser = User.findOne({ // check if user already exists by username or email
+    const existedUser = await User.findOne({ // check if user already exists by username or email
         $or: [{username}, {email}] // if username or email already exists
     })
     if(existedUser){
