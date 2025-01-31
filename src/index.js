@@ -9,6 +9,8 @@ connectDB()
 .then(()=>{
     app.listen(process.env.port,()=>{
         console.log(`Server is running on port ${process.env.port}`)
+        // console.log("Access token:", process.env.ACCESS_TOKEN_SECRET);
+        // console.log("Refresh token:", process.env.REFRESH_TOKEN_SECRET);
     })
 })
 .catch((err)=>{
