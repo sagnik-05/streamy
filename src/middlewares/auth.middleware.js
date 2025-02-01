@@ -28,3 +28,8 @@ export const verifyJWT = asyncHandler(async(req, _, next) => {
         next()
     
 })
+
+// purpose of this middleware is to check if the user is logged in or not
+// if the user is logged in, then the user object will be attached to the request object
+// if the user is not logged in, then an error will be thrown
+// this middleware will be used in routes where we need to check if the user is logged in or not
